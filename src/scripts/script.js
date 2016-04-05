@@ -26,7 +26,7 @@ var randomEl = $('.random');
 		PHOTO ALBUMS		
 ***************************/
 
-var animalPix = [
+let animalPix = [
 	{
 		imageUrl: 'images/animals/milo.jpg',
 		title: 'milo',
@@ -70,7 +70,7 @@ var animalPix = [
 	}
 ]
 
-var cloudPix = [
+let cloudPix = [
 	{
 		imageUrl: 'images/clouds/altocumulus.jpg',
 		title: 'altocumulus',
@@ -114,7 +114,7 @@ var cloudPix = [
 	}
 ]
 
-var treePix = [
+let treePix = [
 	{
 		imageUrl: 'images/trees/tree01.jpg',
 		title: 'yellow tree',
@@ -144,7 +144,7 @@ var treePix = [
 	}
 ]
 
-var rainPix = [
+let rainPix = [
 	{	
 		imageUrl: 'images/rainy/austin_skyline.jpg',
 		title: 'austin skyline',
@@ -174,7 +174,7 @@ var rainPix = [
 	}
 ]
 
-var rainbowPix = [
+let rainbowPix = [
 	{	
 		imageUrl: 'images/rainbow/double_rainbow.jpg',
 		title: 'double rainbow',
@@ -211,7 +211,7 @@ var rainbowPix = [
 	}	
 ]
 
-var randomPix = [
+let randomPix = [
 	{	
 		imageUrl: 'images/random/murder_cookie.jpg',
 		title: 'murder cookie',
@@ -257,7 +257,7 @@ var randomPix = [
 
 
 // show home page; hide sidebar and everything else
-homeEl.on('click', function(e) {
+homeEl.on('click', (e) => {
 	sidebarEl.addClass('hidden');
 	homePage.removeClass('hidden');
 	animalPage.addClass('hidden');
@@ -266,11 +266,10 @@ homeEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 // show animal page and sidebar; hide everything else
-animalsEl.on('click', function(e) {
+animalsEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.removeClass('hidden');
@@ -279,11 +278,10 @@ animalsEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 // show cloud page and sidebar; hide everything else
-cloudsEl.on('click', function(e) {
+cloudsEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.addClass('hidden');
@@ -292,11 +290,10 @@ cloudsEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 // show tree page and sidebar; hide everything else
-treesEl.on('click', function(e) {
+treesEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.addClass('hidden');
@@ -305,11 +302,10 @@ treesEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 // show rainy page and sidebar; hide everything else
-rainyEl.on('click', function(e) {
+rainyEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.addClass('hidden');
@@ -318,11 +314,10 @@ rainyEl.on('click', function(e) {
 	rainPage.removeClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 // show rainbow page and sidebar; hide everything else
-rainbowsEl.on('click', function(e) {
+rainbowsEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.addClass('hidden');
@@ -331,12 +326,11 @@ rainbowsEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.removeClass('hidden');
 	randomPage.addClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 
 // show random page and sidebar; hide everything else
-randomEl.on('click', function(e) {
+randomEl.on('click', (e) => {
 	sidebarEl.removeClass('hidden');
 	homePage.addClass('hidden');
 	animalPage.addClass('hidden');
@@ -345,25 +339,31 @@ randomEl.on('click', function(e) {
 	rainPage.addClass('hidden');
 	rainbowPage.addClass('hidden');
 	randomPage.removeClass('hidden');
-	slideShow.addClass('hidden');
 });
 
 
-animalPix.forEach(function(val,  i, arr) {
-	var slideImg = $('<img>').attr('src', animalPix[i].imageUrl);
-	var slideCaption = $('<h1></h1>').html(animalPix[i].title);
-	$('#overlay').append(slideImg);
-	$('#overlay').append(slideCaption);
-});
+// animalPix.forEach((val,  i, arr) => {
+// 	var slideImg = $('<img>').attr('src', animalPix[i].imageUrl);
+// 	var slideCaption = $('<h1></h1>').html(animalPix[i].title);
+// 	$('#overlay').append(slideCaption);
+// 	$('#overlay').append(slideImg);
+// });
 
-$('.image-1').on('click', function(e) {
+$('.clicked').on('click', (e) => {
 	var $clicked = $(e.target);
+	var closebtn = $('<div class="btn close-btn"></div>').html('&times;');
+	var slideImg = $('<img>').attr('src', ($clicked.attr('src')));
+	var slideCaption = $('<h1 class="clearfix"></h1>').html($clicked.attr('title'));
+	$('#overlay').html('');
+	$('#overlay').append(closebtn);
+	$('#overlay').append(slideCaption);
+	$('#overlay').append(slideImg);
 	$('#overlay').css('height', '100%');
+	$(closebtn).on('click', (e) => {
+		$('#overlay').css('height', '0%');
+	});
 });
 
-$('.close-btn').on('click', function(e) {
-	$('#overlay').css('height', '0%');
-});
 
 // $('.image-1').on('click', function(e){
 // 	animalPage.addClass('hidden');
@@ -372,3 +372,11 @@ $('.close-btn').on('click', function(e) {
 // 	$('.image-url').attr('src', animalPix[0].imageUrl);
 // 	console.log('yo');
 // });
+
+// var slideImg = $('<img>').attr('src', animalPix[0].imageUrl);
+	// var slideCaption = $('<h1></h1>').html(animalPix[0].title);
+	// $('#overlay').append(slideCaption);
+	// $('#overlay').append(slideImg);
+
+
+

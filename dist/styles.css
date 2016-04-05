@@ -137,10 +137,16 @@ nav a {
 
 .btn {
   text-align: right;
-  margin-right: 2.5em; }
+  width: 0.5em;
+  float: right;
+  margin-right: 0.5em;
+  cursor: pointer; }
 
 .close-btn {
   font-size: 3em; }
+
+.clearfix {
+  clear: both; }
 
 /***************************	 	
 	MEDIUM BROWSER SIZE
