@@ -1,0 +1,185 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600italic,600,300italic);
+/***************************	 	
+		GLOBAL STYLES		
+***************************/
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: #2f2f2f;
+  background-color: #fdfefe; }
+
+h1 {
+  font-weight: 600;
+  font-size: 3.5em;
+  margin: 0.25em 0;
+  color: #2f2f2f; }
+
+h2 {
+  font-weight: 400px;
+  font-size: 1.5em;
+  margin: 0.25em 0; }
+
+p {
+  margin: 0.25em 0 0 0; }
+
+a {
+  color: #2f2f2f;
+  text-decoration: none; }
+
+header {
+  width: 100%;
+  text-align: center; }
+
+/***************************	 	
+	NAVIGATION STYLES		
+***************************/
+.sidebar {
+  float: left;
+  background-color: #a3dbe2;
+  width: 18%;
+  padding: 0.5em 1em 2em 1em; }
+
+nav a {
+  display: block;
+  height: 3em;
+  background-color: #fdfefe;
+  margin: 3.5em 1em;
+  text-align: center;
+  line-height: 3rem;
+  outline: 0.75em solid rgba(0, 0, 0, 0.1); }
+
+/***************************	 	
+		PAGE STYLES		
+***************************/
+.home-page, .album-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+  display: -webkit-flex;
+  /* Safari */
+  -webkit-flex-wrap: wrap;
+  /* Safari */
+  -webkit-justify-content: space-around;
+  /* Safari */
+  -webkit-align-content: flex-start;
+  /* Safari */
+  -webkit-align-items: flex-start;
+  /* Safari */ }
+
+.thumb {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  background-color: white; }
+
+.crop {
+  width: 100%;
+  height: 20.75em;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  overflow: hidden; }
+
+.landscape img {
+  position: absolute;
+  width: 175%; }
+
+.portrait img {
+  position: absolute;
+  width: 100%; }
+
+/***************************	 	
+	HOME PAGE STYLES
+***************************/
+.home-header {
+  background-color: #a3dbe2;
+  margin: 1em 0 2em 0; }
+
+/***************************	 	
+	INSIDE PAGE STYLES
+***************************/
+.inside-header {
+  background-color: transparent; }
+
+.album-name {
+  text-align: center;
+  margin-top: -0.5em;
+  padding-top: 0.5em; }
+
+.caption {
+  padding: 0.5em;
+  text-align: center;
+  font-style: italic;
+  color: #95999c; }
+
+.hidden {
+  display: none; }
+
+/***************************	 	
+	SLIDESHOW STYLES
+***************************/
+.slideshow {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #a3dbe2;
+  overflow-y: hidden;
+  transition: 0.7s;
+  text-align: center; }
+  .slideshow img {
+    max-width: 100%; }
+
+.btn {
+  text-align: right;
+  margin-right: 2.5em; }
+
+.close-btn {
+  font-size: 3em; }
+
+/***************************	 	
+	MEDIUM BROWSER SIZE
+***************************/
+@media all and (min-width: 571px) {
+  .thumb {
+    width: 45%;
+    height: auto; }
+
+  .crop {
+    width: 100%;
+    height: 14.75em; }
+
+  .caption {
+    padding: 0.75em; } }
+@media all and (min-width: 850px) {
+  .album-page .thumb {
+    width: 45%;
+    height: auto; }
+
+  .album-page .crop {
+    width: 100%;
+    height: 14.75em; }
+
+  .album-page .caption {
+    padding: 0.75em; } }
+/***************************	 	
+	LARGE BROWSER SIZE
+***************************/
+@media all and (min-width: 861px) {
+  .thumb {
+    width: 30%;
+    height: 18.75em; }
+
+  .crop {
+    height: 15.75em; } }
+@media all and (min-width: 1050px) {
+  .album-page .thumb {
+    width: 30%;
+    height: 18.75em; } }
+
+/*# sourceMappingURL=styles.css.map */
